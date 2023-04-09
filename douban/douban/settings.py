@@ -43,9 +43,10 @@ RANDOMIZE_DOWNLOAD_DELAY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 16
+DOWNLOAD_TIMEOUT = 50
 SCRAPER_SLOT_MAX_ACTIVE_SIZE = 50000000
 # DOWNLOAD_TIMEOUT = 3
-CONCURRENT_ITEMS = 100
+CONCURRENT_ITEMS = 50000
 # REACTOR_THREADPOOL_MAXSIZE = 40
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay

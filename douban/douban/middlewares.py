@@ -10,6 +10,8 @@ import string
 import threading
 import time
 import http.cookies
+from datetime import datetime
+
 import requests
 import requests.utils
 import scrapy.core.downloader.handlers.http11 as handler
@@ -129,16 +131,6 @@ class CookieMiddleware(object):
         return None
 
 
-
-    # 将Set-Cookie字符串转成json
-    def cookie_to_json(self, cookie):
-        cookie_json = {}
-        for item in cookie.split(';'):
-            key = item.split('=')[0].strip()
-            value = item.split('=')[1].strip()
-            cookie_json[key] = value
-        return cookie_json
-
 # 代理
 
 
@@ -214,7 +206,7 @@ class ProxyMiddleware(object):
         if len(proxies) > 50:
             logger.info("代理池充足，无需更新")
             return
-        response = requests.get('http://api.xiequ.cn/VAD/GetIp.aspx?act=get&uid=51539&vkey=0F4A5129E8AD784DD0A85E7725F00B03&num=20&time=30&plat=0&re=0&type=2&so=3&ow=1&spl=1&addr=&db=1')
+        response = requests.get('http://api.xiequ.cn/VAD/GetIp.aspx?act=get&uid=51539&vkey=0F4A5129E8AD784DD0A85E7725F00B03&num=40&time=30&plat=0&re=0&type=2&so=3&ow=1&spl=1&addr=&db=1')
         text = response.text
         data = json.loads(text)['data']
         for item in data:

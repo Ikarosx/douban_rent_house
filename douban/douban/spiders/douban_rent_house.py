@@ -15,6 +15,9 @@ class DoubanRentHouseSpider(scrapy.Spider):
 
     def parse(self, response):
         rows = response.xpath('//table[@class="olt"]//tr[not(@class="th")]')
+        for row in rows:
+            yield from self.parseIndexData(row)
+
         # 判断最后回复时间是否已经超过一天
         lastReplyTime = rows[-1].xpath('td[4]/text()').get()
         # 将字符串转换为datetime对象
@@ -24,15 +27,13 @@ class DoubanRentHouseSpider(scrapy.Spider):
         # 计算时间差
         time_diff = now - last_reply_datetime
         # 判断是否在1天以前
-        if time_diff > timedelta(days=1):
-            logging.warning("超过1天，不继续爬取")
+        if time_diff > timedelta(hours=2):
+            logging.warning("超过2小时，不继续爬取")
             return
         nextPage = response.xpath('//a[text()="后页>"]/@href').get()
         if nextPage:
             yield scrapy.Request(nextPage, callback=self.parse)
 
-        for row in rows:
-            yield from self.parseIndexData(row)
 
     # 解析首页数据
     def parseIndexData(self, row):
