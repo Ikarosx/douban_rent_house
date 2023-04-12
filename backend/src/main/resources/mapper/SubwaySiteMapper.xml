@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ikarosx.mapper.SubwaySiteMapper">
+
+    <resultMap id="BaseResultMap" type="cn.ikarosx.domain.SubwaySite">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="sitePic" column="site_pic" jdbcType="VARCHAR"/>
+            <result property="siteIntroduced" column="site_introduced" jdbcType="VARCHAR"/>
+            <result property="siteCode" column="site_code" jdbcType="VARCHAR"/>
+            <result property="lineName" column="line_name" jdbcType="VARCHAR"/>
+            <result property="operCode" column="oper_code" jdbcType="VARCHAR"/>
+            <result property="lineCode" column="line_code" jdbcType="VARCHAR"/>
+            <result property="siteName" column="site_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,site_pic,site_introduced,
+        site_code,line_name,oper_code,
+        line_code,site_name
+    </sql>
+</mapper>

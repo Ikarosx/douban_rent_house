@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ikarosx.mapper.GroupTopicMapper">
+
+    <resultMap id="BaseResultMap" type="cn.ikarosx.domain.GroupTopic">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="groupName" column="group_name" jdbcType="VARCHAR"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="author" column="author" jdbcType="VARCHAR"/>
+            <result property="url" column="url" jdbcType="VARCHAR"/>
+            <result property="reply" column="reply" jdbcType="INTEGER"/>
+            <result property="createTopicTime" column="create_topic_time" jdbcType="TIMESTAMP"/>
+            <result property="lastReplyTime" column="last_reply_time" jdbcType="TIMESTAMP"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="intermediary" column="intermediary" jdbcType="TINYINT"/>
+            <result property="key" column="key" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,group_name,title,
+        author,url,reply,
+        create_topic_time,last_reply_time,content,
+        intermediary,key,create_time,
+        update_time
+    </sql>
+</mapper>

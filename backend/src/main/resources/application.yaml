@@ -1,0 +1,22 @@
+server:
+  port: 8999
+  # 优雅关机
+  shutdown: graceful
+spring:
+  servlet:
+    multipart:
+      # 上传限制
+      max-file-size: 200MB
+      max-request-size: 200MB
+  profiles:
+    active: dev
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+mybatis-plus:
+  # mapper位置
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+logging:
+  config: classpath:logback/logback-${spring.profiles.active}.xml
