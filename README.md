@@ -39,7 +39,7 @@ pip install -r requirements.txt
 # 正常安装完成是可以看到显示 douban_rent_house
 scrapy list
 # 运行爬虫
-scrapy crawl douban
+scrapy crawl douban_rent_house
 ```
 
 ### 注意事项
