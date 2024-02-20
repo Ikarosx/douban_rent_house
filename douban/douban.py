@@ -26,11 +26,20 @@ class douban_spider:
             'https://www.douban.com/group/nanshanzufang/discussion?start=0&type=new',
             'https://www.douban.com/group/591624/discussion?start=0&type=new',
             # 罗湖租房
-            # 'https://www.douban.com/group/592828/discussion?start=0&type=new',
+            'https://www.douban.com/group/592828/discussion?start=0&type=new',
             # 宝安租房1
             'https://www.douban.com/group/baoanzufang/',
             # 宝安租房2
-            'https://www.douban.com/group/luobao1haoxian/'
+            'https://www.douban.com/group/luobao1haoxian/',
+
+            # 北京租房
+            'https://www.douban.com/group/beijingzufang/',
+            'https://www.douban.com/group/sweethome/',
+            'https://www.douban.com/group/513717/',
+            'https://www.douban.com/group/537715/',
+            'https://www.douban.com/group/beijingzufang/'
+
+
         ]
         self.init_sql_pool()
 
@@ -155,14 +164,25 @@ class douban_spider:
         return True
 
     def init_sql_pool(self):
-        self.con = pymysql.connect(
-            host='ikarosx-mysql.mysql.rds.aliyuncs.com',
-            port=3306,
-            database='douban',
-            charset='utf8mb4',
-            user='douban',
-            password='douban2024!'
-        )
+        max_fail = 10
+        while max_fail > 0:
+            try:
+                self.con = pymysql.connect(
+                    host='xxx.xxx.xxx.xxx',
+                    port=3306,
+                    database='douban',
+                    charset='utf8mb4',
+                    user='douban',
+                    password='douban'
+                )
+                break
+            except Exception as e:
+                log.error('数据库连接失败', e)
+                max_fail -= 1
+                time.sleep(3)
+                if max_fail == 0:
+                    raise Exception('数据库连接失败')
+
 
     def save_to_mysql(self, topicItem):
         with self.con.cursor() as cursor:
