@@ -87,9 +87,9 @@ class douban_spider:
         if time_diff > timedelta(hours=3):
             log.warning("超过3小时，不继续爬取")
             return
-        nextPage = etree_result.xpath('//a[text()="后页>"]/@href')[0]
-        if nextPage:
-            self.parse_index_data(nextPage)
+        nextPage = etree_result.xpath('//a[text()="后页>"]/@href')
+        if nextPage and len(nextPage) > 0:
+            self.parse_index_data(nextPage[0])
 
     # 解析详细数据
     def parse_detail_data(self, row):
@@ -168,7 +168,7 @@ class douban_spider:
         while max_fail > 0:
             try:
                 self.con = pymysql.connect(
-                    host='xxx.xxx.xxx.xxx',
+                    host='xxxx',
                     port=3306,
                     database='douban',
                     charset='utf8mb4',
