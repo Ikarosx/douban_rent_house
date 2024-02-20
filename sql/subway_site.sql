@@ -1,3 +1,14 @@
+CREATE TABLE IF NOT EXISTS `subway_site` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `site_pic` varchar(255) DEFAULT NULL COMMENT '车站图片',
+    `site_introduced` text DEFAULT NULL COMMENT '车站介绍',
+    `site_code` varchar(255) DEFAULT NULL COMMENT '车站编码',
+    `line_name` varchar(255) DEFAULT NULL COMMENT '线路名称',
+    `oper_code` varchar(255) DEFAULT NULL COMMENT '运营编码',
+    `line_code` varchar(255) DEFAULT NULL COMMENT '线路编码',
+    `site_name` varchar(255) DEFAULT NULL COMMENT '车站名称',
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4;
 INSERT INTO `subway_site` (`id`, `site_pic`, `site_introduced`, `site_code`, `line_name`, `oper_code`, `line_code`, `site_name`) VALUES (1, 'http://www.szmc.net/styles/index/zdWeb/images/0602_b.jpg', '车站位于深圳市福田区上步中路与红荔路交叉口南侧，沿上步中路南北向布置，该站为地下三层岛式车站。', '264012', '6', '1261010000', '264', '通新岭');
 INSERT INTO `subway_site` (`id`, `site_pic`, `site_introduced`, `site_code`, `line_name`, `oper_code`, `line_code`, `site_name`) VALUES (2, 'http://www.szmc.net/styles/index/zdWeb/images/0626_b.jpg', '溪头站位于宝安区松岗镇沙江路与规划溪头路交叉口以西，沿沙江路路中（偏北）呈东西向布置，东接松岗站，西接松岗公园站。溪头站为地下二层岛式车站，地下一层为站厅层，地下二层为站台层，设备区位于公共区的东西两端。站址周边规划以商业、居住和政府社团用地为主。溪头站设置有A、B、C、D共4个出入口，其中B出入口为主要紧急出入口，C为备用紧急出入口。站厅D出入口处设置有公共男洗手间、女洗手间和残疾人洗手间各一间，方便非付费区乘客使用。', '264036', '6', '1264036000', '264', '溪头');
 INSERT INTO `subway_site` (`id`, `site_pic`, `site_introduced`, `site_code`, `line_name`, `oper_code`, `line_code`, `site_name`) VALUES (3, 'http://www.szmc.net/styles/index/zdWeb/images/0607_b.jpg', '梅林关站位于梅观路东侧、丰泽湖山庄西侧树林内，沿梅观路方向呈南北向布置。车站设置有5个出入口，先开通A、B出入口（3个预留出入口C、D、E），其中A出入口为主要紧急出入口, B出入口为备用紧急出入口,B出入口为下行松岗方向公交接驳出入口,A出入口为上行科学馆方向公交接驳出入口。B出入口设置垂直电梯，A出入口站厅通道处设置公共卫生间（含第三卫生间）。', '264017', '6', '1264017000', '264', '梅林关');

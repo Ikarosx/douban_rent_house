@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS `group_topic` (
+  `id` INT PRIMARY KEY AUTO_INCREMENT COMMENT '帖子ID',
+  `group_name` VARCHAR(255) COMMENT '小组名称',
+  `title` VARCHAR(255) COMMENT '帖子标题',
+  `author` VARCHAR(255) COMMENT '作者',
+  `url` VARCHAR(255) COMMENT '链接',
+  `reply` INT COMMENT '回复数',
+  `create_topic_time` DATETIME COMMENT '发帖时间',
+  `last_reply_time` DATETIME COMMENT '最后回复时间',
+  `content` TEXT COMMENT '内容',
+  `intermediary` INT COMMENT '是否中介，为空未判断，0不是1是',
+  `price` DECIMAL(10,2) COMMENT '价格',
+  `community` BOOLEAN COMMENT '1疑似小区 0不是小区',
+  `keys` VARCHAR(255) COMMENT '关键词，地铁或者小区',
+  `unit_type` VARCHAR(255) COMMENT '户型',
+  `share` BOOLEAN COMMENT '合租',
+  `create_time` DATETIME COMMENT '创建时间',
+  `update_time` DATETIME COMMENT '更新时间',
+  `topic_type` INT COMMENT '0卖1买'
+);

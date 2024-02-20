@@ -1,3 +1,13 @@
+CREATE TABLE IF NOT EXISTS `community` (
+    `id` varchar(20) NOT NULL,
+    `project_type` varchar(255) DEFAULT NULL,
+    `dev_name` varchar(255) DEFAULT NULL,
+    `dist_name` varchar(255) DEFAULT NULL,
+    `csp_name` varchar(255) DEFAULT NULL,
+    `staff_name` varchar(255) DEFAULT NULL,
+    `project_name` varchar(255) DEFAULT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4;
 INSERT INTO `community` (`project_type`, `dev_name`, `dist_name`, `id`, `csp_name`, `staff_name`, `project_name`) VALUES ('住宅', '-', '罗湖区', '1044030301000591', '深圳市东深物业管理有限公司', '谢文达', '东深小区');
 INSERT INTO `community` (`project_type`, `dev_name`, `dist_name`, `id`, `csp_name`, `staff_name`, `project_name`) VALUES ('办公楼', '-', '罗湖区', '1044030301000592', '深圳市城建物业管理有限公司', '潘军驰', '东晓办公楼');
 INSERT INTO `community` (`project_type`, `dev_name`, `dist_name`, `id`, `csp_name`, `staff_name`, `project_name`) VALUES ('住宅', '-', '罗湖区', '1044030301000593', '深圳市金田物业管理有限公司', '赖林平', '芳春花园');
